@@ -6,7 +6,9 @@ let dot1;
 function setup() {
   createCanvas(windowWidth - 20, windowHeight - 20);
   colorMode(HSL, 360, 100, 100);
+  //number of balls on the screen
   numberOfBalls = 100;
+  //adding balls to an array
   balls = [];
   for (let i = 0 ; i < numberOfBalls; i++){
       let name = new BouncyDot();
@@ -17,6 +19,7 @@ function setup() {
 function draw() {
   background(220, 0, 80);
   
+  //having each ball move and be printed to the screen
   for (let i = 0 ; i < balls.length; i++){
     balls[i].float();
     balls[i].display();
@@ -46,6 +49,7 @@ class BouncyDot {
     this.yVelocity = this.masterYvelocity;
   }
 
+ //making the ball move around the screen. if it hits the side of the canvas, velocity changes.
   float() {
     this.x += this.xVelocity;
     this.y += this.yVelocity;
@@ -64,6 +68,7 @@ class BouncyDot {
     }
   }
 
+//show the balls
   display() {
     fill(this.color, 80, 70);
     noStroke();
